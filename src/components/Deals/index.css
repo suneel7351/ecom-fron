@@ -1,0 +1,32 @@
+.img-hover {
+    transition: var(--smooth);
+}
+
+.img-hover:hover {
+    transform: scale(1.1);
+}
+
+
+.carousel-container {
+    padding: 0;
+}
+
+
+.custom-arrow {
+    background-color: white;
+    padding: 25px 8px;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+
+.custom-arrow-left {
+    left: 0;
+}
+
+.custom-arrow-right {
+    right: 0;
+}
+
+/* bg-white px-4 absolute cursor-pointer py-8 */

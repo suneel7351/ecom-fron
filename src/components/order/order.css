@@ -1,0 +1,49 @@
+.greenColor {
+    color: green;
+}
+
+.redColor {
+    color: var(--primary);
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: var(--primary);
+    padding: 1vmax !important;
+}
+
+.MuiDataGrid-columnHeader div {
+    color: rgb(255, 255, 255);
+    font: 500 1.1vmax "Roboto" !important;
+}
+
+
+
+.MuiDataGrid-iconSeparator {
+    display: none !important;
+}
+
+.myOrdersTable {
+    background-color: white;
+    width: 97%;
+    margin: 0 auto;
+}
+
+.myOrdersTable div {
+    font: 300 1vmax "Roboto";
+
+}
+
+.myOrdersTable a {
+    color: rgba(0, 0, 0, 0.527);
+    transition: var(--smooth);
+}
+
+.myOrdersTable a:hover {
+    color: var(--primary);
+}
+
+@media only screen and (max-width:767px) {
+    .myOrdersTable div {
+        font: 500 2vmax "Roboto";
+    }
+}

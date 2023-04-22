@@ -1,0 +1,30 @@
+.banner {
+    background: url("/public/ecom.jpg") no-repeat center center;
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.banner a {
+    background-color: #fb641b;
+    color: white;
+}
+.banner h1{
+    background-color: rgb(238, 234, 234);
+    padding: .3rem;
+}
+
+.banner::after {
+    content: "";
+    height: 105vh;
+    width: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    clip-path: polygon(0 75%, 0% 100%, 100% 100%);
+}

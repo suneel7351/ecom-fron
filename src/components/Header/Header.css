@@ -1,0 +1,45 @@
+.link:hover {
+    color: var(--primary);
+    transition: var(--smooth);
+}
+
+.btn {
+    padding: 3px 15px;
+    background-color: var(--primary);
+    transition: var(--smooth);
+    color: white;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: var(--hover);
+}
+
+nav {
+    background-color: #2874f0;
+    color: white;
+    padding: 17px;
+}
+
+.login-btn {
+    color: #2874f0;
+    background-color: white;
+    padding: 2px 19px;
+}
+
+.brand-explore {
+    margin-bottom: 5px;
+    position: absolute;
+    top: 39px;
+}
+
+
+
+input {
+    color: black;
+}
+
+
+.file-input {
+    display: none;
+}

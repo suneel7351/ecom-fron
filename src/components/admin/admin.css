@@ -1,0 +1,179 @@
+.admin-container {
+    display: flex;
+    height: 88vh;
+}
+
+.admin-link-div {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    transition: var(--smooth);
+}
+
+.admin-container a {
+    transition: var(--smooth);
+}
+
+.admin-link-div:hover,
+.admin-container a:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+}
+
+.sidebar {
+    flex: 1;
+    padding: 5rem 3rem;
+}
+
+.main-container {
+    padding: 3rem;
+    flex: 5;
+    overflow-y: auto;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-amount {
+    width: 100%;
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: large;
+    align-items: center;
+    padding: .2rem 0;
+}
+
+
+
+.circles {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    display: flex;
+    width: 8rem;
+    height: 8rem;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+   
+    transition: var(--smooth);
+}
+
+
+
+.amount-chart {
+    width: 70%;
+    margin-top: 1rem;
+}
+
+.doughnut-chart {
+    width: 40%;
+}
+
+.input-div>textarea {
+    width: 100%;
+}
+
+.update-stock-btn:hover {
+    transform: scale(1) !important;
+}
+
+
+
+@media only screen and (max-width:720px) {
+
+    .main-container {
+        flex: auto;
+        padding: 3rem 1rem;
+    }
+
+    .sidebar {
+        flex: 1;
+        padding: 5rem 1rem;
+    }
+
+    .amount-chart {
+        width: 85%;
+    }
+
+    .doughnut-chart {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width:598px) {
+    .admin-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .main-container,
+    .sidebar {
+        flex: 1;
+    }
+
+    .sidebar {
+        padding: 5rem 3rem;
+    }
+
+    .circle {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .amount-chart {
+        width: 93%;
+    }
+
+    .doughnut-chart {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width:340px) {
+
+    .sidebar {
+        padding: 5rem 2rem;
+    }
+
+    .circle {
+        width: 2rem;
+        height: 2rem;
+        font-size: medium;
+        font-weight: 500;
+        padding: 2.5rem;
+    }
+
+    .circles {
+        gap: .4rem;
+    }
+
+    .amount-chart {
+        width: 95%;
+    }
+
+    .doughnut-chart {
+        width: 99%;
+    }
+}
