@@ -101,6 +101,7 @@ export const productReview = createAsyncThunk(
     try {
       const { data } = await axios.put(`${url}/product/review`, reviewData, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true,
       });
       return data.success;
     } catch (error) {

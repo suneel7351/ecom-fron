@@ -9,7 +9,6 @@ import { removeItem } from "../../redux/product/addToCart";
 import { Link } from "react-router-dom";
 
 function CartItem({ item }) {
-
   const dispatch = useDispatch();
   const increase = (id, Stock, quantity) => {
     const newQty = quantity + 1;
@@ -34,7 +33,7 @@ function CartItem({ item }) {
       <div className="border-b border-slate-200 py-4 cart-items px-4">
         <div className="flex gap-3">
           <img
-            src="https://rukminim1.flixcart.com/image/497/596/ky0g58w0/fabric/f/x/s/no-2-35-m-unstitched-na-tshirt-33-retail-store-original-imagacybfnb5cz9h.jpeg?q=50"
+            src={item.image && item.image}
             alt={item.name}
             className="w-[100px]"
           />
