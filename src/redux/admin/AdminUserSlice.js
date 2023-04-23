@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 const AdminUserSlice = createSlice({
   name: "userSlice",
   initialState: {
@@ -77,7 +77,9 @@ export const getAllUsers = createAsyncThunk(
   "/admin/users",
   async (x, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/users");
+      const { data } = await axios.get(`${url}/admin/users`, {
+        withCredentials: true,
+      });
       return data.users;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -90,9 +92,12 @@ export const updateUserRole = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `/api/v1/admin/user/${userData.id}`,
+        `${url}/admin/user/${userData.id}`,
         { role: userData.role },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data.message;
     } catch (error) {
@@ -104,7 +109,9 @@ export const getUserDetails = createAsyncThunk(
   "/admin/user/:id",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/api/v1/admin/user/${id}`);
+      const { data } = await axios.get(`${url}/admin/user/${id}`, {
+        withCredentials: true,
+      });
       return data.user;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -116,7 +123,9 @@ export const deleteUser = createAsyncThunk(
   "/admin/user/delete",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/user/${id}`);
+      const { data } = await axios.delete(`${url}/admin/user/${id}`, {
+        withCredentials: true,
+      });
       return data.message;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

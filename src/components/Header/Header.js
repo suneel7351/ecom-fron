@@ -208,6 +208,7 @@ const Header = () => {
                   "& .MuiBadge-badge": {
                     backgroundColor: "#fe5f1e",
                   },
+                  color:"#fff"
                 }}
               >
                 <ShoppingCartIcon style={{ color: "#000" }} />

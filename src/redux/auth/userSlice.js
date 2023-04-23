@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const url = "/api/v1";
+// const url = "/api/v1";
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 
 const userSlice = createSlice({
   name: "user",
@@ -93,7 +94,10 @@ export const login = createAsyncThunk(
       const { data } = await axios.post(
         `${url}/user/login`,
         { email: userData.email, password: userData.password },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data;
     } catch (error) {
@@ -113,7 +117,10 @@ export const register = createAsyncThunk(
           password: userData.password,
           avatar: userData.avatar,
         },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data;
     } catch (error) {
@@ -126,7 +133,9 @@ export const profile = createAsyncThunk(
   "user/me",
   async (demo, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`${url}/user/profile`);
+      const { data } = await axios.get(`${url}/user/profile`, {
+        withCredentials: true,
+      });
       return data.user;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -137,7 +146,9 @@ export const logout = createAsyncThunk(
   "user/logout",
   async (demo, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`${url}/user/logout`);
+      const { data } = await axios.get(`${url}/user/logout`, {
+        withCredentials: true,
+      });
       return data.message;
     } catch (error) {
       return rejectWithValue(error.response.data.message);

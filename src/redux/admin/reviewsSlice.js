@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 const reviewsSlice = createSlice({
   name: "reviewsSlice",
   initialState: {
@@ -53,7 +53,9 @@ export const getAllReviews = createAsyncThunk(
   "/admin/reviews",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`/api/v1/product/review/${id}`);
+      const { data } = await axios.get(`${url}/product/review/${id}`, {
+        withCredentials: true,
+      });
       return data.reviews;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -66,7 +68,8 @@ export const deleteReview = createAsyncThunk(
   async (ids, { rejectWithValue }) => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/product/review/${ids.productId}?id=${ids.reviewId}`
+        `${url}/product/review/${ids.productId}?id=${ids.reviewId}`,
+        { withCredentials: true }
       );
       return data.message;
     } catch (error) {

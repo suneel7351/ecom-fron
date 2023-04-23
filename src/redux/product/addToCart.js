@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const url = "/api/v1";
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 
 const addTocartSlice = createSlice({
   name: "Cart",

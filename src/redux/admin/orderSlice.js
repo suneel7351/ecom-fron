@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 const adminOrderSlice = createSlice({
   name: "orderslice",
   initialState: {
@@ -62,7 +63,9 @@ export const getAllOrders = createAsyncThunk(
   "/admin/orders",
   async (x, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/orders");
+      const { data } = await axios.get(`${url}/admin/orders`, {
+        withCredentials: true,
+      });
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -73,7 +76,9 @@ export const deleteOrder = createAsyncThunk(
   "/admin/order/delete",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/order/${id}`);
+      const { data } = await axios.delete(`${url}/admin/order/${id}`, {
+        withCredentials: true,
+      });
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -85,11 +90,14 @@ export const updateOrder = createAsyncThunk(
   async (order, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `/api/v1/admin/order/${order.id}`,
+        `${url}/admin/order/${order.id}`,
         {
           status: order.status,
         },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data;
     } catch (error) {

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const url = "/api/v1";
+// const url = "/api/v1";
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 
 const profileSlice = createSlice({
   name: "profile",
@@ -80,7 +81,10 @@ export const updateProfile = createAsyncThunk(
           email: userData.email,
           avatar: userData.avatar,
         },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data.message;
     } catch (error) {
@@ -99,7 +103,10 @@ export const changePassword = createAsyncThunk(
           oldPassword: password.oldPassword,
           newPassword: password.newPassword,
         },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
 
       return data.message;
@@ -117,7 +124,10 @@ export const sendResetPasswordToken = createAsyncThunk(
         {
           email,
         },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
 
       return data.message;
@@ -137,10 +147,14 @@ export const resetPassword = createAsyncThunk(
           confirmPassword: password.confirmPassword,
           token: password.token,
         },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
 
       return data.message;
+      // const url = "https://ecom-w0cc.onrender.com/api/v1";
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

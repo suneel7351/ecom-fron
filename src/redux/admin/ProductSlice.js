@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+const url = "https://ecom-w0cc.onrender.com/api/v1";
 const productSlice = createSlice({
   name: "/admin/productslice",
   initialState: {
@@ -86,7 +86,9 @@ export const getAllProducts = createAsyncThunk(
   "/admin/products",
   async (x, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/v1/admin/products");
+      const { data } = await axios.get(`${url}/admin/products`, {
+        withCredentials: true,
+      });
       return data.products;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
@@ -98,9 +100,12 @@ export const createProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(
-        "/api/v1/admin/product/new",
+        `${url}/admin/product/new`,
         productData,
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data;
     } catch (error) {
@@ -113,9 +118,12 @@ export const updateProduct = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `/api/v1/admin/product/${productData.id}`,
+        `${url}/admin/product/${productData.id}`,
         productData.myForm,
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data.success;
     } catch (error) {
@@ -128,9 +136,12 @@ export const updateProductStock = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `/api/v1/admin/product/stock/${productData.id}`,
+        `${url}/admin/product/stock/${productData.id}`,
         { stock: productData.stock },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
       return data.success;
     } catch (error) {
@@ -142,7 +153,9 @@ export const deleteProduct = createAsyncThunk(
   "/admin/product/delete",
   async (id, { rejectWithValue }) => {
     try {
-      const { data } = await axios.delete(`/api/v1/admin/product/${id}`);
+      const { data } = await axios.delete(`${url}/admin/product/${id}`, {
+        withCredentials: true,
+      });
       return data.success;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
