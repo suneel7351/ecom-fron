@@ -81,7 +81,7 @@ function CartItem({ item }) {
       <div className="border border-slate-200 py-4 px-4 mobile-cart-item">
         <div className="">
           <img
-            src="https://rukminim1.flixcart.com/image/497/596/ky0g58w0/fabric/f/x/s/no-2-35-m-unstitched-na-tshirt-33-retail-store-original-imagacybfnb5cz9h.jpeg?q=50"
+            src={item.image && item.image}
             alt={item.name}
             className="w-[200px]"
           />

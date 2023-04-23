@@ -123,7 +123,10 @@ function Payment() {
     }
 
     async function getKey() {
-      const { data } = await axios.get(`/api/v1/getKey`);
+      const { data } = await axios.get(
+        `https://ecom-w0cc.onrender.com/api/v1/getKey`,
+        { withCredentials: true }
+      );
       setKey(data.key);
     }
     getKey();
