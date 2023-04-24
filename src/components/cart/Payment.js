@@ -141,6 +141,10 @@ function Payment() {
             Payment
           </h1>
 
+          <h1 className="text-3xl text-center text-slate-700 my-4 py-4">
+            Pay with upi id for only testing purpose : success@razorpay
+          </h1>
+
           <Button
             ref={payBtn}
             type="submit"
